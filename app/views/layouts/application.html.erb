@@ -5,11 +5,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <hr>
+      <p><span>🐐</span> Goats in Coats <span>🧥</span> - Copywrong <%= Time.current.year %></p>
+    </footer>
   </body>
 </html>

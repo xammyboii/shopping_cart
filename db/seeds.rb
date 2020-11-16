@@ -2,7 +2,7 @@ require "uri"
 
 Product.delete_all
 
-40.times do
+39.times do
   p = Product.create(name:        Faker::Commerce.unique.product_name,
                      price_cents: rand(5000..100_000).to_i,
                      description: Faker::Hipster.sentence(word_count: rand(4..8)))
