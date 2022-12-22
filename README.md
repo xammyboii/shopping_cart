@@ -22,3 +22,16 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+upgrading to Rails 7.0.4
+* Delete yarn.lock
+* Open package.json and remove webpacker version
+* Run yarn install
+* remove or comment out line below in application.layout file
+<% #javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+* rails active_storage:update
+* rails db:migrate
+
+Start your rails server and everything should be back to normal!
