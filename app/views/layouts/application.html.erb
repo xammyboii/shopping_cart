@@ -17,6 +17,13 @@
       <h3>Make Us Rich</h3>
     </header>
     <main>
+      <% if flash[:notice] %>
+        <p>
+          <%= flash[:notice] %>
+        </p>
+      <% end %>
+      <% #debug cart %>
+      <% debug session[:shopping_cart] %>
       <%= yield %>
     </main>
     <footer>
