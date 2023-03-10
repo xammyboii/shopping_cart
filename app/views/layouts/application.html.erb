@@ -15,6 +15,28 @@
     <header>
       <h1>Buy Our Stuff</h1>
       <h3>Make Us Rich</h3>
+      <nav>
+        <%= link_to image_tag("cat.jpg", width:60),root_path %>
+        <ul>
+          <li>
+            Cart
+            <% if cart.present? %>
+            <sup>
+              <%= cart.size %>
+            </sup>
+            <ul>
+              <% cart.each do |product| %>
+              <li>
+                <%# product.name %><%# link_to '−', cart_path(product), method: :delete %>
+                <%# button_to cart_path(product), method: :delete do %>
+                <%= product.name %><%= button_to '➖', cart_path(product), method: :delete  %>
+              </li>
+              <% end %>
+            </ul>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
     </header>
     <main>
       <% if flash[:notice] %>
@@ -27,6 +49,27 @@
       <%= yield %>
     </main>
     <footer>
+      <details>
+        <summary>
+          cart
+          <% if cart.present? %>
+            <sup><%= cart.size %></sup>
+          <% end %>
+        </summary>
+        <% if cart.present? %>
+        <ul>
+          <% cart.each do |p| %>
+            <li>
+              <%# product.name %><%# link_to '❌', cart_path(product), method: :delete %>
+              <%= p.name %><%= button_to '➖', cart_path(p), method: :delete  %>
+
+            </li>
+          <% end %>
+        </ul>
+        <% else %>
+          <p>Not items in cart. Please order something 😄</p>
+        <% end %>
+      </details>
       <hr>
       <p><span>🐐</span> Goats in Coats <span>🧥</span> - Copywrong <%= Time.current.year %></p>
     </footer>
