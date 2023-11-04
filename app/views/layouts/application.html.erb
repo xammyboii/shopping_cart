@@ -8,18 +8,24 @@
     <link rel="stylesheet" href="https://unpkg.com/mvp.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <% #javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
-
   <body>
-
     <main>
+      <%= debug cart %>
+      <hr>
+      <%= debug session[:shopping_cart]%>
+      <% if flash[:notice] %>
+        <p><%= flash[:notice] %></p>
+      <% end %>
+      <p>
+        You have added  <%= pluralize cart, 'time' %> to the cart ;)
+      </p>
       <%= yield %>
     </main>
     <footer>
-
-
-      <p><span>🐐</span> Goats in Coats <span>🧥</span> - Copywrong <%= Time.current.year %></p>
+      <p>
+        <span>🐐</span> Goats in Coats <span>🧥</span> - Copywrong <%= Time.current.year %>
+      </p>
     </footer>
   </body>
 </html>
